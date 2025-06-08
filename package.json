@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Ibarra1812/fullBack#readme",
+  "bugs": {
+    "url": "https://github.com/Ibarra1812/fullBack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ibarra1812/fullBack.git"
+  },
+  "license": "ISC",
+  "author": "Ibarra",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

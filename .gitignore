@@ -1,0 +1,24 @@
+# Ignorar archivos de entorno (contraseñas, claves)
+.env
+*.env
+
+# Ignorar node_modules (si es un proyecto Node.js)
+node_modules/
+
+# Ignorar archivos generados por el sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar logs y archivos temporales
+*.log
+*.tmp
+
+# Ignorar carpetas de IDEs
+.idea/
+.vscode/
+
+# Ignorar archivos compilados (Python, Java, TypeScript, etc.)
+__pycache__/
+*.pyc
+dist/
+build/
