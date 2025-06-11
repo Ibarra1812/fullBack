@@ -39,7 +39,7 @@ app.get('/info', (request, response) => {
 app.get('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
   const personId = person.find((p) => p.id === id)
-
+  console.log(personId)
   if (personId) {
     response.json(personId)
   } else {
