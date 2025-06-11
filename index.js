@@ -21,6 +21,16 @@ let person =  [
     id: 4,
     name: "Mary Poppendieck", 
     number: "39-23-6423122"
+  },
+  {
+    id: 5,
+    name: "John Doe",
+    number: "123-456-7890"
+  },
+  {
+    id: 6,
+    name: "Jane Smith",
+    number: "987-654-3210"
   }
 ]
 app.use(express.json())
@@ -47,7 +57,12 @@ app.get('/api/persons/:id', (request, response) => {
   }
 }
 )
-
+app.delete('/api/persons/:id', (request, response) => {
+  const id = Number(request.params.id)
+  person = person.filter((p) => p.id !== id)
+  response.status(204).end()
+}
+)
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
