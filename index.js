@@ -1,28 +1,6 @@
 const express = require('express')
 const app = express()
 
-
-
-let notes = [
-  {
-    id: '1',
-    content: 'HTML is easy',
-    important: true,
-  },
-  {
-    id: '2',
-    content: 'Browser can execute only JavaScript',
-    important: false,
-  },
-  {
-    id: '3',
-    content: 'GET and POST are the most important methods of HTTP protocol',
-    important: true,
-  },
-]
-
-
-
 let person =  [
   { 
     id: 1,
@@ -54,11 +32,10 @@ app.get('/', (request, response) => {
 app.get('/api/persons', (request, response) => {
   response.json(person)
 })
-
-app.get('/api/notes', (request, response) => {
-  response.json(notes)
+app.get('/info', (request, response) => {
+  response.send('<p>Phonebook has info for ' + person.length + ' people</p>' +
+    '<p>' + new Date() + '</p>')
 })
-
 app.get('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
   const personId = person.find((p) => p.id === id)
