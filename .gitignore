@@ -20,5 +20,4 @@ Thumbs.db
 # Ignorar archivos compilados (Python, Java, TypeScript, etc.)
 __pycache__/
 *.pyc
-dist/
 build/
