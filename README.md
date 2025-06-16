@@ -39,9 +39,6 @@ You can switch to the desired branch by running the command `git switch <branch-
 
 ## # Notes backend
 
-...existing code...
-
-## Dependencies
 ## Dependencies
 
 The main dependencies used in this project are:
@@ -88,4 +85,3 @@ You can run the following commands in the project root:
 - `npm run deploy:full`  
   Builds the frontend, commits the changes, and pushes to the repository.
 
-...existing code...
