@@ -34,3 +34,56 @@ Follow these steps to run the application:
 The different stages of the application are saved in different branches. Switching branches changes the code in your working directory to match the state of the branch you switched to. This allows you to work on different versions of the application without affecting the codebase of other branches.
 
 You can switch to the desired branch by running the command `git switch <branch-name>`, for example `git switch part3-2`. Note that new dependencies are added to the application as development progresses, so after switching branches, it is safest to run the command `npm install` to ensure that any missing node modules will be installed on your machine.
+
+## # Notes backend
+
+...existing code...
+
+## Dependencies
+## Dependencies
+
+The main dependencies used in this project are:
+
+- [express](https://www.npmjs.com/package/express): ^5.1.0  
+  Minimal and flexible Node.js web application framework for building APIs.
+- [cors](https://www.npmjs.com/package/cors): ^2.8.5  
+  Middleware to enable Cross-Origin Resource Sharing (CORS) in Express apps.
+- [morgan](https://www.npmjs.com/package/morgan): ^1.10.0  
+  HTTP request logger middleware for Node.js.
+
+For development:
+- [nodemon](https://www.npmjs.com/package/nodemon): ^3.1.10  
+  Utility that automatically restarts the Node.js application when file changes are detected.
+
+You can see all dependencies in `package.json`.
+The main dependencies used in this project are:
+
+- [express](https://www.npmjs.com/package/express): ^5.1.0
+- [cors](https://www.npmjs.com/package/cors): ^2.8.5
+- [morgan](https://www.npmjs.com/package/morgan): ^1.10.0
+
+For development:
+- [nodemon](https://www.npmjs.com/package/nodemon): ^3.1.10
+
+You can see all dependencies in `package.json`.
+
+## Available Scripts
+
+You can run the following commands in the project root:
+
+- `npm install`  
+  Installs all dependencies.
+
+- `npm start`  
+  Starts the application using Node.
+
+- `npm run dev`  
+  Starts the application in development mode using nodemon (auto-restarts on changes).
+
+- `npm run build:ui`  
+  Builds the frontend from `/home/alvaro/Documentos/part1` and copies the build to this backend's `dist` folder.
+
+- `npm run deploy:full`  
+  Builds the frontend, commits the changes, and pushes to the repository.
+
+...existing code...

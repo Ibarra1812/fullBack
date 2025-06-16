@@ -1,25 +1,25 @@
 const express = require('express')
 const app = express()
 var morgan = require('morgan')
-let person =  [
-  { 
+let person = [
+  {
     id: 1,
-    name: "Arto Hellas", 
+    name: "Arto Hellas",
     number: "040-123456"
   },
-  { 
+  {
     id: 2,
-    name: "Ada Lovelace", 
+    name: "Ada Lovelace",
     number: "39-44-5323523"
   },
-  { 
+  {
     id: 3,
-    name: "Dan Abramov", 
+    name: "Dan Abramov",
     number: "12-43-234345"
   },
-  { 
+  {
     id: 4,
-    name: "Mary Poppendieck", 
+    name: "Mary Poppendieck",
     number: "39-23-6423122"
   },
   {
