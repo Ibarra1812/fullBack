@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 var morgan = require('morgan')
 const Person = require('./models/person')
+const person = require('./models/person')
 
 morgan.token('body', (req) => JSON.stringify(req.body))
 app.use(express.static('dist'))
@@ -43,35 +44,23 @@ app.delete('/api/persons/:id', (request, response) => {
 )
 const generateId = () => {
   let id
-  do {
-    id = Math.floor(Math.random() * 1e12)
-  } while (person.some((p) => p.id === id))
+  id = Math.floor(Math.random() * 1e12)
   return id
 }
 app.post('/api/persons', (request, response) => {
   const body = request.body
 
-  if (!body.name || !body.number) {
-    return response.status(400).json({
-      error: 'name or number missing',
-    })
-  }
-  if (person.some((p) => p.name === body.name)) {
-    return response.status(400).json({
-      error: 'name must be unique',
-    })
-  }
-
-  const newPerson = {
+  const person = new Person({
     id: generateId(),
     name: body.name,
     number: body.number,
-  }
+  })
 
-  person = person.concat(newPerson)
-  response.json(newPerson)
-}
-)
+  person.save()
+    .then((savedPerson) => {
+      response.json(savedPerson)
+    })
+})
 const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
