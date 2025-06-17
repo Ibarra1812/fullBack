@@ -13,3 +13,8 @@ luego otro comando como para hacer commits y push en git
 
 5. Tambien agarramos express para la parte de solicitudes HTTP 
 
+6. Configuramos lo que es tambine el depurador de Visual code que se utiliza el launch.json que es para inicializar el depurador para determinado lenguaje
+
+7. Creamos un cluster en mongoDB para la conexion de persistencia con la aplicacion, teniendo en cuenta los usuarios y contrasena dentro de .env para poder hacer la conexion.
+Instalando como controladores Mongoose y no MongoDB oficial de node
+
