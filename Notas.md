@@ -17,4 +17,6 @@ luego otro comando como para hacer commits y push en git
 
 7. Creamos un cluster en mongoDB para la conexion de persistencia con la aplicacion, teniendo en cuenta los usuarios y contrasena dentro de .env para poder hacer la conexion.
 Instalando como controladores Mongoose y no MongoDB oficial de node
+Modificamos lo que es el push de datos por parte del esquema esto se hace modificando con el metodo toJson que hace que convierte a todos los datos que mandamos de objeto a string para asi asegurando que se van a borrar atributos que no queremos como __v de mongo que es la version que fue agregada y la generacion de id automatico que tiene el mongoDB
 
+8. Agregamos una nueva libreria dotenv para el manejo de variables de entorno
