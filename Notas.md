@@ -17,6 +17,7 @@ luego otro comando como para hacer commits y push en git
 
 7. Creamos un cluster en mongoDB para la conexion de persistencia con la aplicacion, teniendo en cuenta los usuarios y contrasena dentro de .env para poder hacer la conexion.
 Instalando como controladores Mongoose y no MongoDB oficial de node
-Modificamos lo que es el push de datos por parte del esquema esto se hace modificando con el metodo toJson que hace que convierte a todos los datos que mandamos de objeto a string para asi asegurando que se van a borrar atributos que no queremos como __v de mongo que es la version que fue agregada y la generacion de id automatico que tiene el mongoDB
+Modificamos lo que es el push de datos por parte del esquema esto se hace modificando con el metodo toJson que hace que convierte a todos los datos que mandamos de objeto a string para asi asegurando que se van a borrar atributos que no queremos como __v de mongo que es la version que fue agregada y la generacion de id automatico que tiene el mongoDB.
+Usamos tambien findById y findByAndDelete y next como manejador de errores, next es un midware, este esta como entrada para todas las funciones de peticion HTTP que hay para la aplicacion porque sino no se podria invocar next con error.
 
 8. Agregamos una nueva libreria dotenv para el manejo de variables de entorno
