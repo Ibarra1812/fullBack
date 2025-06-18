@@ -59,11 +59,29 @@ app.delete('/api/persons/:id', (request, response, next) => {
 
 app.put('/api/persons/:id', (request, response, next) => {
   const {name, number} = request.body
-  Person.findByIdAndUpdate(request.params.id, {name, number}, {new: true})
+  Person.findById(request.params.id)
+    .then((person) => {
+      if (!person) {
+        return response.status(404).end()
+      }
+
+      // Modificamos los campos necesarios
+      person.name = name
+      person.number = number
+
+      // Guardamos los cambios
+      return person.save().then((updatedPerson) => {
+        response.json(updatedPerson)
+      })
+    })
+    .catch((error) => next(error))
+  
+  
+  /* Person.findByIdAndUpdate(request.params.id, {name, number}, {new: true})
     .then((updatedPerson) => {
       response.json(updatedPerson)
     })
-    .catch((error) => next(error))
+    .catch((error) => next(error)) */
     // Opción 2: Usando findById, modificar y luego save (más detallado)
   /*
   Person.findById(request.params.id)
