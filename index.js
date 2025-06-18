@@ -15,10 +15,10 @@ app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
 }
 )
-app.get('/api/persons', (request, response) => {
+app.get('/api/persons', (request, response, next) => {
   Person.find({}).then((person) => {
     response.json(person)
-  })
+  }).catch((error) => (next(error)))
 })
 app.get('/info', (request, response, next) => {
   Person.find({}).then((person) => {
