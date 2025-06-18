@@ -3,7 +3,6 @@ const express = require('express')
 const app = express()
 var morgan = require('morgan')
 const Person = require('./models/person')
-const person = require('./models/person')
 
 morgan.token('body', (req) => JSON.stringify(req.body))
 app.use(express.static('dist'))
@@ -37,9 +36,15 @@ app.get('/api/persons/:id', (request, response) => {
 }
 )
 app.delete('/api/persons/:id', (request, response) => {
-  const id = Number(request.params.id)
-  person = person.filter((p) => p.id !== id)
-  response.status(204).end()
+  Person.findByIdAndDelete(request.params.id)
+    .then((result) => {
+      response.status(204).end()
+    })
+    .catch((error) => {
+      console.error(error)
+      response.status(500).send({ error: 'something went wrong' })
+    } 
+  )
 }
 )
 const generateId = () => {
@@ -61,6 +66,9 @@ app.post('/api/persons', (request, response) => {
       response.json(savedPerson)
     })
 })
+
+
+
 const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
