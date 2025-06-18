@@ -22,6 +22,9 @@ app.get('/api/persons', (request, response, next) => {
 })
 app.get('/info', (request, response, next) => {
   Person.find({}).then((person) => {
+    if(!person) {
+      return response.status(404).send({ error: 'No persons found' })
+    }
     if (person.length === 0) {
       response.send('<p>Phonebook is empty</p>' +
         '<p>' + new Date() + '</p>')
