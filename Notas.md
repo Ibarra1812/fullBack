@@ -22,3 +22,8 @@ Usamos tambien findById y findByAndDelete y next como manejador de errores, next
 
 8. Agregamos una nueva libreria dotenv para el manejo de variables de entorno
 9. Regex
+
+10. Genéricamente, lint o linter es cualquier herramienta que detecta y marca errores en los lenguajes de programación, incluidos los errores de estilo. El término comportamiento lint-like a veces se aplica al proceso de marcar el uso de lenguaje sospechoso. Las herramientas de tipo lint generalmente realizan análisis estáticos del código fuente.
+eslint:recommended añade un conjunto de reglas recomendadas al proyecto. Además, se han añadido reglas para la indentación, saltos de línea, guiones y puntos y comas. Estas cuatro reglas están todas definidas en el plugin de estilos de Eslint.
+luego en package.json esta un comando para aplicar eslint a todos los archivos del proyecto
+npm run lint
