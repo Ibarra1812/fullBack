@@ -21,3 +21,4 @@ Modificamos lo que es el push de datos por parte del esquema esto se hace modifi
 Usamos tambien findById y findByAndDelete y next como manejador de errores, next es un midware, este esta como entrada para todas las funciones de peticion HTTP que hay para la aplicacion porque sino no se podria invocar next con error.
 
 8. Agregamos una nueva libreria dotenv para el manejo de variables de entorno
+9. Regex

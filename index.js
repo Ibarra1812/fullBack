@@ -22,13 +22,13 @@ app.get('/api/persons', (request, response, next) => {
 })
 app.get('/info', (request, response, next) => {
   Person.find({}).then((person) => {
-    if(!person) {
+    if (!person) {
       return response.status(404).send({ error: 'No persons found' })
     }
     if (person.length === 0) {
       response.send('<p>Phonebook is empty</p>' +
         '<p>' + new Date() + '</p>')
-      
+
     }
     response.send('<p>Phonebook has info for ' + person.length + ' people</p>' +
       '<p>' + new Date() + '</p>')
@@ -58,20 +58,21 @@ app.delete('/api/persons/:id', (request, response, next) => {
 )
 
 app.put('/api/persons/:id', (request, response, next) => {
-  const {name, number} = request.body
-  Person.findByIdAndUpdate(request.params.id, {name, number}, {new: true, runValidators: true, context: 'query'})
+  const { name, number } = request.body
+  //runValidators:true is really necesary
+  Person.findByIdAndUpdate(request.params.id, { name, number }, { new: true, runValidators: true, context: 'query' })
     .then((updatedPerson) => {
       response.json(updatedPerson)
     })
     .catch((error) => next(error))
-  
-  
+
+
   /* Person.findByIdAndUpdate(request.params.id, {name, number}, {new: true})
     .then((updatedPerson) => {
       response.json(updatedPerson)
     })
     .catch((error) => next(error)) */
-    // Opción 2: Usando findById, modificar y luego save (más detallado)
+  // Opción 2: Usando findById, modificar y luego save (más detallado)
   /*
   Person.findById(request.params.id)
     .then((person) => {
@@ -127,7 +128,9 @@ const errorHandler = (error, request, response, next) => {
   if (error.name === 'CastError') {
     return response.status(400).send({ error: 'malformatted id' })
   } else if (error.name === 'ValidationError') {
-    return response.status(400).json({ error: error.message })  
+    // Extract only the custom messages from the fields
+    const messages = Object.values(error.errors).map(e => e.message)
+    return response.status(400).json({ error: messages.join(', ') })
   }
   next(error)
 }
