@@ -1,3 +1,19 @@
+PARTE 1
+usamos express para el manejo de respuestas y solicitudes HTTP, y para la solicitudes POST tenemos que usar el parse-json que es para tener el request.body que es para la solicitud se pueda cambiar a un objeto js para despues poder mandarlo al servidor
+Despues un protocolo para HTTP es que para todas las solicitudes menos POST, no tiene que haber efectos secundarios.
+Luego usamos MIDWARE para obtener un manejo sobre las solicitudes y las respuestas, ya que es una capa en medio que nos permite mejor gestion de todo. MIDWARE son funciones que podemos realizar que estan entre medio de las solicitudes y las respuestas.
+Nodemon luego es una libreria que se usa para desarrollo nos permite que cada vez que se actualiza un archivo se actualice tambien el proyecto corriendo, y se renderize.
+Luego vimos lo que es REST en pocas palabras que las cosas singulares, como las notas en el caso de nuestra aplicación, se llaman recursos en el pensamiento REST. Cada recurso tiene una URL asociada que es la dirección única del recurso.
+PARTE 2
+La política de mismo origen es un mecanismo de seguridad implementado por los navegadores para prevenir el secuestro de sesiones, entre otras vulnerabilidades de seguridad.
+Política de mismo origen: Es una restricción estricta del navegador para bloquear accesos entre orígenes diferentes por defecto.
+CORS: Es un mecanismo que permite a los servidores autorizar accesos desde otros orígenes de manera controlada.
+npm install cors
+Luego lo que hacemos tambien es un SPA, donde unificamos el front con el back donde la direccion de solicitudes se va ver unificada en 1 sola el localhost:3001/api/persons, donde esta union se realiza mediante el npm run build 
+app.use(express.static('dist'))
+y gracias al midware static dist, que dice al back que toda request que reciba de afuera, verifique si en dist esta la respuesta para mandarselo a ellos
+y tambien gracias a esto tambien tenemos que cambiar la direccion de frontend en la parte de servicios y cambiar la direccion de AXIOS y darle una relativa para poder guiarse bien, y luego modificar la configuracion de vite y agregar un proxy para declarar la direccion que tienen que tener para el servidor, osea la base de datos y cargar los datos que hagan falta, porque va esta el frontend pero vacio sin datos.
+PARTE 3 Y 4
 1.Aca lo que hicismo en la parte 3 como parte de la configuracion del back con el front en una pseudo produccion fue el de hacer en el front un 
 npm run build
 Como para hacer una version mas optimizada del front para que el back lo lea directamente dentro de la carpeta dist
@@ -27,3 +43,8 @@ Usamos tambien findById y findByAndDelete y next como manejador de errores, next
 eslint:recommended añade un conjunto de reglas recomendadas al proyecto. Además, se han añadido reglas para la indentación, saltos de línea, guiones y puntos y comas. Estas cuatro reglas están todas definidas en el plugin de estilos de Eslint.
 luego en package.json esta un comando para aplicar eslint a todos los archivos del proyecto
 npm run lint
+
+
+luego como midware tambien usamos un manejador de errores, uno para errores de solicitudes de url, y otro para errores de sistema, esto nos vendra bien cuando tengamos, o queramos poner un sistema de detector de errores
+lo definen 4 variables de entrada, error, request, response, next
+y luego para las rutas desconocidas solo request, response, next
